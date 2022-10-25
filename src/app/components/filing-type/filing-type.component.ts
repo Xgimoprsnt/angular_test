@@ -1,4 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output ,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-filing-type',
@@ -6,11 +7,16 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./filing-type.component.css']
 })
 export class FilingTypeComponent implements OnInit {
-  @Input() value?: String ;
+  @Input() valueSelected?: String ;
+  @Output() changeValue = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  Change(value : string){
+    this.changeValue.emit(value)
   }
 
 }

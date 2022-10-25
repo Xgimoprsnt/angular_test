@@ -82,12 +82,17 @@ nav{
 }
 
 .view-exchange-rate{
-    float: right;
+    /* float: right; */
     text-decoration: underline;
+    /* margin-top: -2rem; */
 }
 
 #btn-back ,#btn-next{
     border-radius: 1.25rem;
+}
+
+#btn-next{
+    margin-left:1.5rem;
 }
 
 

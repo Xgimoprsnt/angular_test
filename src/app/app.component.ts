@@ -8,12 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-test-exam';
   page : string = 'Input Detail' || 'Reviews & Confirm' ;
+  TypeOfFiling : string = '0';
 
-
+  
+ 
+ 
 
   async handleOnclickNext(){
 
     this.page = 'Reviews & Confirm'
+    this.submit()
   }
 
   async handleOnclickBack(){
@@ -31,6 +35,10 @@ export class AppComponent {
         return style
     }
     return {}
+  }
+
+  submit(){
+    console.log(this.TypeOfFiling,'datappparam')
   }
 
 
