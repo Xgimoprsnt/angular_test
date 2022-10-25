@@ -1,19 +1,14 @@
 <nav class="py-4 bg-light">
   <div class="container col-md-12">
 
-
     <div class="text-right">
 
       <div class="d-inline-block px-4">
         Time in Thailand: 15:57 (GMT +7) | 1st October 2021
       </div>
 
-
-
       <div class="dropdown text-end d-inline-block">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
-          aria-expanded="false">
-
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle">
           <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           <span class="username-nav">Lorem Co Ltd,</span>
         </a>
@@ -28,7 +23,6 @@
 </div>
 
 <div class="container">
-  <div>
 
     <div class="col-md-2 col-lg-3 steps mb-5">
       <progress id="progress" value=0 max=100></progress>
@@ -128,9 +122,7 @@
 
           <ng-container *ngIf="TypeOfFiling == '1'">
 
-
             <h6 class="my-4">Incase of late filling and payment, or additional filling</h6>
-
 
             <app-surcharge></app-surcharge>
 
@@ -159,8 +151,6 @@
             <div class="col-md-3">
               <p class="text-right">16,100.00 THB</p>
             </div>
-
-
           </div>
 
           <div class="row mt-3">
@@ -171,21 +161,14 @@
           <h4 class="mt-5">Declaration</h4>
           <hr />
           <h6>I hereby certify that information given above are true and correct and agree to be bound by such information. </h6>
-
-
-
         </ng-container>
-
-
-
-
-
 
       </div>
     </div>
 
 
     <div class="action-tool my-4 d-flex">
+
       <ng-container *ngIf="page == 'Input Detail' ">
         <button class="btn btn-outline-secondary px-5 py-2 " type="button" id="btn-back" (click)="handleOnclickBack()">
           Back
@@ -195,18 +178,12 @@
         </button>
       </ng-container>
 
-
       <ng-container *ngIf="page == 'Reviews & Confirm'">
         <button class="btn btn-dark m-auto py-2 px-5 mx-auto" type="button" id="btn-next" (click)="handleOnclickNext()">
           Confiirm and Submit
         </button>
       </ng-container>
 
-
-
-
     </div>
-
-
-  </div>
+  
 </div>
