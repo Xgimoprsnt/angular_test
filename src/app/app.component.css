@@ -21,20 +21,9 @@ nav{
 
 
 
-/*  unnecessary */
-body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  flex-direction:column;
-}
-section{
-  width:100%;
-}
-/*  unnecessary finished*/
 
-/* CSS */
+
+
 .steps {
     display: flex;
     justify-content: space-between;
@@ -91,5 +80,16 @@ section{
     background-color: var(--bs-gray);
 
 }
+
+.view-exchange-rate{
+    float: right;
+    text-decoration: underline;
+}
+
+#btn-back ,#btn-next{
+    border-radius: 1.25rem;
+}
+
+
 
 

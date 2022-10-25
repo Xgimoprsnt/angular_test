@@ -1,112 +1,126 @@
 <nav class="py-4 bg-light">
   <div class="container col-md-12">
- 
-      
-      <div class="text-right">
-
-        <div class="d-inline-block px-4">
-          Time in Thailand: 15:57 (GMT +7) |  1st October 2021
-        </div>
 
 
-        
-        <div class="dropdown text-end d-inline-block">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-  
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-            <span class="username-nav">Lorem Co Ltd,</span>
-          </a>
-        </div>
+    <div class="text-right">
+
+      <div class="d-inline-block px-4">
+        Time in Thailand: 15:57 (GMT +7) | 1st October 2021
       </div>
-  
+
+
+
+      <div class="dropdown text-end d-inline-block">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <span class="username-nav">Lorem Co Ltd,</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </nav>
 
-
 <div class="py-5  mx-auto text-center">
-  <h1 >Submit Tax Filing</h1>
+  <h1>Submit Tax Filing</h1>
 </div>
 
-
-
-<section>
-  <div class="container">
-      <div class="accordion" id="accordionExample">
-
-          <div class="col-md-2 col-lg-3 steps mb-5">
-              <progress id="progress" value=0 max=100 ></progress>
-              <div class="step-item">
-                  <button class="step-button text-center" type="button" data-toggle="collapse"
-                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      1
-                  </button>
-                  <div class="step-title mt-2">
-                      Input Detail
-                  </div>
-              </div>
-              <div class="step-item">
-                  <button class="step-button text-center collapsed" type="button" data-toggle="collapse"
-                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      2
-                  </button>
-                  <div class="step-title mt-2">
-                      Review & Confirm
-                  </div>
-              </div>
-            
-          </div>
-
-          <div class="card p-5">
-                <div>
-                    <h4>1. Tax Filing Detail</h4>
-                    <hr/>
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Type of filing <span class="require">*</span></label>
-                        <br/>
-
-                        <div class="form-check form-check-inline mt-2 ">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ordinary Filing</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Additional Filing</label>
-                        </div>
-
-                    </div>
-
-
-                    
-                    <div class="form-group">
-                        <label for="">VAT Month <span class="require">*</span></label>
-                        <br/>
-
-                        <div class="form-inline">
-                            <select class="form-control" >
-                                <!-- <option selected>September</option> -->
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                        </div>
-
-                    </div>
-
-
-
-
-
+<div class="container">
+  <div>
+    <div class="col-md-2 col-lg-3 steps mb-5">
+      <progress id="progress" value=0 max=100></progress>
       
-                    
-                   
-                 
+      <div class="step-item">
+        <button class="step-button text-center" type="button" [attr.aria-expanded]="page == 'Input Detail'"  [ngStyle]="checkStepStyle(page)" >
+          1
+        </button>
+        <div class="step-title mt-2">
+          Input Detail
+        </div>
+      </div>
 
+      <div class="step-item">
+        <button class="step-button text-center collapsed" type="button" [attr.aria-expanded]="page == 'Reviews & Confirm'"  >
+          2
+        </button>
+        <div class="step-title mt-2">
+          Review & Confirm
+        </div>
+      </div>
 
-                </div>
+    </div>
+
+    <div class="card p-5">
+      <div>
+        <h4>1. Tax Filing Detail</h4>
+        <hr />
+
+        <app-filing-type></app-filing-type>
+
+        <div class="form-row row">
+
+          <div class="col-md-2 mb-3">
+            <label for="">VAT Month <span class="require">*</span></label>
+
+            <app-month></app-month>
+
           </div>
 
- 
+          <div class="col-md-2 mt-4">
+            <app-year></app-year>
+          </div>
+
+
+          <div class="col-md-2 ">
+            <label for="">Type <span class="require">*</span></label>
+            <select class="form-select">
+              <!-- <option selected>September</option> -->
+              <option value="1">On-Time</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
+        </div>
+
+
+
+
+        <h4 class="d-inline-block mt-5">2. Tax Computation</h4> <span class="view-exchange-rate mt-5">View Exchange
+          Rate</span>
+        <hr />
+        <h6>Provide total value taxable eletronic service <span class="require">*</span></h6>
+
+
+        <app-sale-amount></app-sale-amount>
+
+        <app-tax-amount></app-tax-amount>
+
+
+        <h6 class="my-4">Incase of late filling and payment, or additional filling</h6>
+
+
+        <app-surcharge></app-surcharge>
+
+        <app-penalty></app-penalty>
+
+        <app-total-amount></app-total-amount>
+
+
       </div>
+    </div>
+
+    <div class="action-tool my-4">
+      <button class="btn btn-outline-secondary px-5 py-2 m-3" type="button" id="btn-back" (click)="handleOnclickBack()">
+        Back
+      </button>
+      <button class="btn btn-dark px-5 py-2 " type="button" id="btn-next" (click)="handleOnclickNext()" >
+        Next
+      </button>
+    </div>
+
+
   </div>
-</section>
+</div>

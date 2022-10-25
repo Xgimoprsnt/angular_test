@@ -1,1 +1,5 @@
-<p>year works!</p>
+<select class="form-select" >
+    <!-- <option selected>September</option> -->
+    <option value="" disabled>Choose year</option>
+    <option *ngFor="let year of yearList" >{{year}}</option>
+</select>
