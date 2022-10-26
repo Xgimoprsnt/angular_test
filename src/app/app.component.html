@@ -24,166 +24,166 @@
 
 <div class="container">
 
-    <div class="col-md-2 col-lg-3 steps mb-5">
-      <progress id="progress" value=0 max=100></progress>
+  <div class="col-md-2 col-lg-3 steps mb-5">
+    <progress id="progress" value=0 max=100></progress>
 
-      <div class="step-item">
-        <button class="step-button text-center" type="button" [attr.aria-expanded]="page == 'Input Detail'"
-          [ngStyle]="checkStepStyle(page)">
-          1
-        </button>
-        <div class="step-title mt-2">
-          Input Detail
-        </div>
+    <div class="step-item">
+      <button class="step-button text-center" type="button" [attr.aria-expanded]="page == 'Input Detail'"
+        [ngStyle]="checkStepStyle(page)">
+        1
+      </button>
+      <div class="step-title mt-2">
+        Input Detail
       </div>
-
-      <div class="step-item">
-        <button class="step-button text-center collapsed" type="button"
-          [attr.aria-expanded]="page == 'Reviews & Confirm'">
-          2
-        </button>
-        <div class="step-title mt-2">
-          Review & Confirm
-        </div>
-      </div>
-
     </div>
 
-    <div class="card p-5">
-      <div>
-        <h4>1. Tax Filing Detail</h4>
-        <hr />
+    <div class="step-item">
+      <button class="step-button text-center collapsed" type="button"
+        [attr.aria-expanded]="page == 'Reviews & Confirm'">
+        2
+      </button>
+      <div class="step-title mt-2">
+        Review & Confirm
+      </div>
+    </div>
 
-        <ng-container *ngIf="page == 'Input Detail'  ">
+  </div>
 
-          <app-filing-type [valueSelected]="TypeOfFiling" (changeValue)="TypeOfFiling = $event"> </app-filing-type>
+  <div class="card p-5">
+    <div>
+      <h4>1. Tax Filing Detail</h4>
+      <hr />
 
-          <div class="form-row row">
+      <ng-container *ngIf="page == 'Input Detail'  ">
 
-            <div class="col-md-2 mb-3">
-              <label for="">VAT Month <span class="require">*</span></label>
+        <app-filing-type [valueSelected]="TypeOfFiling" (changeValue)="updateTypeOfFiling($event)"> </app-filing-type>
 
-              <app-month></app-month>
+        <div class="form-row row">
 
-            </div>
+          <div class="col-md-2 mb-3">
+            <label for="">VAT Month <span class="require">*</span></label>
 
-            <div class="col-md-2 mt-4">
-              <app-year></app-year>
-            </div>
-
-            <ng-container *ngIf="TypeOfFiling == '1'">
-              <div class="col-md-2 ">
-                <label for="">Type <span class="require">*</span></label>
-                <select class="form-select">
-                  <!-- <option selected>September</option> -->
-                  <option value="1">On-Time</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-
-            </ng-container>
-
-
+            <app-month [ItemValue]="month" (changeValue)="updateMonth($event)"></app-month>
 
           </div>
-        </ng-container>
 
-        <ng-container *ngIf="page == 'Reviews & Confirm'  ">
-          <div class="form-inline">
-            <h5 class="d-inline-block col-md-2">Type of Filing</h5>
-            <p class="d-inline-block col-md-2">Ordinary Filing</p>
+          <div class="col-md-2 mt-4">
+            <app-year [ItemValue]="year" (changeValue)="updateYear($event)"></app-year>
           </div>
-
-          <div class="form-inline">
-            <h5 class="d-inline-block col-md-2">VAT Month</h5>
-            <p class="d-inline-block col-md-2">September 2021</p>
-          </div>
-
-
-        </ng-container>
-        <div class="d-flex mt-5">
-
-          <h4 class="col-md-10 ">2. Tax Computation</h4>
-          <span class="view-exchange-rate col-md-2" *ngIf="page == 'Input Detail'  ">View Exchange
-            Rate</span>
-        </div>
-
-        <hr />
-
-        <ng-container *ngIf="page == 'Input Detail'  ">
-          <h6>Provide total value taxable eletronic service <span class="require">*</span></h6>
-
-
-          <app-sale-amount></app-sale-amount>
-
-          <app-tax-amount></app-tax-amount>
-
 
           <ng-container *ngIf="TypeOfFiling == '1'">
-
-            <h6 class="my-4">Incase of late filling and payment, or additional filling</h6>
-
-            <app-surcharge></app-surcharge>
-
-            <app-penalty></app-penalty>
-
-            <app-total-amount></app-total-amount>
+            <div class="col-md-2 ">
+              <label for="">Type <span class="require">*</span></label>
+              <select class="form-select">
+                <option value="1">On-Time</option>
+              </select>
+            </div>
 
           </ng-container>
 
-        </ng-container>
 
 
-        <ng-container *ngIf="page == 'Reviews & Confirm'  ">
-          <div class="row mt-3">
-            <h5 class="col-md-9">Total value of taxale electronic service exclusive of VAT</h5>
-            <p class="col-md-3 text-right">230,000.00 THB</p>
-          </div>
+        </div>
+      </ng-container>
 
-          <div class="row mt-3">
-            <div class="col-md-9">
-              <h5 class="">Total VAT to be remitted</h5>
-              <small>(7% of Total value of taxable
-                eletronic service exclusive of VAT)</small>
-            </div>
+      <ng-container *ngIf="page == 'Reviews & Confirm'  ">
+        <div class="form-inline">
+          <h5 class="d-inline-block col-md-2">Type of Filing</h5>
+          <p class="d-inline-block col-md-2">Ordinary Filing</p>
+        </div>
 
-            <div class="col-md-3">
-              <p class="text-right">16,100.00 THB</p>
-            </div>
-          </div>
+        <div class="form-inline">
+          <h5 class="d-inline-block col-md-2">VAT Month</h5>
+          <p class="d-inline-block col-md-2">{{month}} {{year}}</p>
+        </div>
 
-          <div class="row mt-3">
-            <h5 class=" col-md-9">Total Amount Payable</h5>
-            <h5 class="col-md-3 text-right">16,100.00 THB</h5>
-          </div>
 
-          <h4 class="mt-5">Declaration</h4>
-          <hr />
-          <h6>I hereby certify that information given above are true and correct and agree to be bound by such information. </h6>
-        </ng-container>
+      </ng-container>
+      <div class="d-flex mt-5">
 
+        <h4 class="col-md-10 ">2. Tax Computation</h4>
+        <span class="view-exchange-rate col-md-2" *ngIf="page == 'Input Detail'  ">View Exchange
+          Rate</span>
       </div>
-    </div>
+
+      <hr />
+
+      <ng-container *ngIf="page == 'Input Detail'  ">
+        <h6>Provide total value taxable eletronic service <span class="require">*</span></h6>
 
 
-    <div class="action-tool my-5 d-flex">
+        <app-sale-amount [ItemValue]="saleAmount" (changeValue)="updateSaleAmout($event)"></app-sale-amount>
 
-      <ng-container *ngIf="page == 'Input Detail' ">
-        <button class="btn btn-outline-secondary px-5 py-2 " type="button" id="btn-back" (click)="handleOnclickBack()">
-          Back
-        </button>
-        <button class="btn btn-dark px-5 py-2 " type="button" id="btn-next" (click)="handleOnclickNext()">
-          Next
-        </button>
+        <app-tax-amount [ItemValue]="taxAmount"></app-tax-amount>
+
+
+        <ng-container *ngIf="TypeOfFiling == '1'">
+
+          <h6 class="my-4">Incase of late filling and payment, or additional filling</h6>
+
+          <app-surcharge [ItemValue]="surchage"></app-surcharge>
+
+          <app-penalty [ItemValue]="penalty"></app-penalty>
+
+          <app-total-amount [ItemValue]="totalAmount"></app-total-amount>
+
+        </ng-container>
+
       </ng-container>
 
-      <ng-container *ngIf="page == 'Reviews & Confirm'">
-        <button class="btn btn-dark m-auto py-2 px-5 mx-auto" type="button" id="btn-next" (click)="handleOnclickNext()">
-          Confiirm and Submit
-        </button>
+
+      <ng-container *ngIf="page == 'Reviews & Confirm'  ">
+        <div class="row mt-3">
+          <h5 class="col-md-9">Total value of taxale electronic service exclusive of VAT</h5>
+          <p class="col-md-3 text-right">{{saleAmount  | number : '1.2-2'}}THB</p>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-9">
+            <h5 class="">Total VAT to be remitted</h5>
+            <small>(7% of Total value of taxable
+              eletronic service exclusive of VAT)</small>
+          </div>
+
+          <div class="col-md-3">
+            <p class="text-right">{{taxAmount  | number : '1.2-2' }} THB</p>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <h5 class=" col-md-9">Total Amount Payable</h5>
+          <h5 class="col-md-3 text-right">{{totalAmount  | number : '1.2-2'}} THB</h5>
+        </div>
+
+        <h4 class="mt-5">Declaration</h4>
+        <hr />
+        <h6>I hereby certify that information given above are true and correct and agree to be bound by such
+          information. </h6>
       </ng-container>
 
     </div>
-  
+  </div>
+
+  <div class="action-tool my-5 d-flex">
+
+    <ng-container *ngIf="page == 'Input Detail' ">
+      <button class="btn btn-outline-secondary px-5 py-2 " type="button" id="btn-back" (click)="handleOnclickBack()">
+        Back
+      </button>
+      <button class="btn btn-dark px-5 py-2 " type="button" id="btn-next" (click)="handleOnclickNext()">
+        Next
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="page == 'Reviews & Confirm'">
+      <button class="btn btn-dark m-auto py-2 px-5 mx-auto" type="submit" (click)="submit()">
+        Confiirm and Submit
+      </button>
+    </ng-container>
+
+  </div>
+
 </div>
+
+
+

@@ -6,7 +6,7 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./penalty.component.css']
 })
 export class PenaltyComponent implements OnInit {
-  @Input() value?: number ;
+  @Input() ItemValue?: number ;
   constructor() { }
 
   ngOnInit(): void {

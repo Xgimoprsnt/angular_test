@@ -6,7 +6,7 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./surcharge.component.css']
 })
 export class SurchargeComponent implements OnInit {
-  @Input() value?: number ;
+  @Input() ItemValue?: number ;
   constructor() { }
 
   ngOnInit(): void {

@@ -6,7 +6,7 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./tax-amount.component.css']
 })
 export class TaxAmountComponent implements OnInit {
-  @Input() value?: number ;
+  @Input() ItemValue?: number ;
   constructor() { }
 
   ngOnInit(): void {

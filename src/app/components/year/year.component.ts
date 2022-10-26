@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter  } from '@angular/core';
 import * as dayjs from 'dayjs'
 dayjs().format()
 
@@ -9,6 +9,9 @@ dayjs().format()
   styleUrls: ['./year.component.css']
 })
 export class YearComponent implements OnInit {
+  @Input() ItemValue?: String ;
+  @Output() changeValue = new EventEmitter<string>();
+  
   yearList : any =[]
   constructor() { }
 
@@ -26,5 +29,10 @@ export class YearComponent implements OnInit {
       }
       return list
   }
+
+  updateValue(value : string){
+    this.changeValue.emit(value)
+  }
+
 
 }

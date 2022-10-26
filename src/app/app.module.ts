@@ -11,6 +11,9 @@ import { SurchargeComponent } from './components/surcharge/surcharge.component';
 import { PenaltyComponent } from './components/penalty/penalty.component';
 import { TotalAmountComponent } from './components/total-amount/total-amount.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,8 @@ import { TotalAmountComponent } from './components/total-amount/total-amount.com
     TaxAmountComponent,
     SurchargeComponent,
     PenaltyComponent,
-    TotalAmountComponent
+    TotalAmountComponent,
+    
   ],
   imports: [
     BrowserModule
