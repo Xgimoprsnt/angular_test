@@ -1,0 +1,57 @@
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    margin: auto;
+}
+
+.step-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: solid var(--bs-border-color) 2px;
+    background-color: var(--bs-white);
+    transition: .4s;
+    color:var(--bs-gray)
+}
+
+.step-button[aria-expanded="true"] {
+    width: 35px;
+    height: 35px;
+    background-color: var(--bs-white) ;
+    border:solid 2px black;
+    color: black;
+    font-weight: bold;
+}
+
+.done {
+    background-color: var(--bs-primary);
+    color: #fff;
+}
+
+.step-item {
+    z-index: 10;
+    text-align: center;
+}
+
+#progress {
+    position: absolute;
+    width: 15rem;
+    z-index: 5;
+    height: 4px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+#progress::-webkit-progress-value {
+    background-color: var(--bs-primary);
+    transition: .5s ease;
+}
+
+#progress::-webkit-progress-bar {
+    background-color: var(--bs-gray);
+
+}

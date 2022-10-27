@@ -10,6 +10,9 @@ import { TaxAmountComponent } from './components/tax-amount/tax-amount.component
 import { SurchargeComponent } from './components/surcharge/surcharge.component';
 import { PenaltyComponent } from './components/penalty/penalty.component';
 import { TotalAmountComponent } from './components/total-amount/total-amount.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { StepComponent } from './components/step/step.component';
+import { ActionbarComponent } from './components/actionbar/actionbar.component';
 
 
 
@@ -25,7 +28,9 @@ import { TotalAmountComponent } from './components/total-amount/total-amount.com
     SurchargeComponent,
     PenaltyComponent,
     TotalAmountComponent,
-    
+    HeaderComponent,
+    StepComponent,
+    ActionbarComponent,
   ],
   imports: [
     BrowserModule

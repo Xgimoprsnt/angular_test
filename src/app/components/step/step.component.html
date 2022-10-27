@@ -1,0 +1,23 @@
+<div class="col-md-2 col-lg-3 steps mb-5">
+  <progress id="progress" value=0 max=100></progress>
+
+  <div class="step-item">
+    <button class="step-button text-center" type="button" [attr.aria-expanded]="step == 0 "
+      [ngStyle]="checkStepStyle(step)">
+      1
+    </button>
+    <div class="step-title mt-2">
+      Input Detail
+    </div>
+  </div>
+
+  <div class="step-item">
+    <button class="step-button text-center collapsed" type="button" [attr.aria-expanded]="step == 1">
+      2
+    </button>
+    <div class="step-title mt-2">
+      Review & Confirm
+    </div>
+  </div>
+
+</div>

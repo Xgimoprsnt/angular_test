@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-
-
 interface TtaxData {
   filingType: string,
   month: string,
@@ -19,7 +17,7 @@ interface TtaxData {
 })
 export class AppComponent {
   title = 'angular-test-exam';
-  page: string = 'Input Detail' || 'Reviews & Confirm';
+  stepSelected : number = 0 ;
   TypeOfFiling: string = '0';
   saleAmount: number = 0;
   taxAmount: number = 0;
@@ -29,7 +27,6 @@ export class AppComponent {
   year : string = '';
   month : string = '';
 
-  
   taxData: any = <TtaxData>{
     filingType:'',
     month:'',
@@ -50,46 +47,25 @@ export class AppComponent {
  
   }
 
-  async handleOnclickNext() {
-
-    
-
-    this.page = 'Reviews & Confirm'
-
-  }
-
-  async handleOnclickBack() {
-
-    this.page = 'Input Detail'
-  }
-
-  checkStepStyle(page: string): Object {
-    let style = {
-      'backgroundColor': 'black',
-      'color': 'white'
+  updateAction(value : string){
+    if(value == 'back'){
+      this.stepSelected = 0
     }
-
-    if (page == 'Reviews & Confirm') {
-      return style
+    if(value == 'next'){
+      this.stepSelected = 1
     }
-    return {}
-  }
-
-  submit() {
-
-
-
-    this.taxData ={
-      filingType:this.TypeOfFiling,
-      month : this.month,
-      year:this.year,
-      saleAmount:this.saleAmount,
-      taxAmount:this.taxAmount,
-      surcharge:this.surchage,
-      penalty:this.penalty,
-      totalAmount:this.totalAmount
+    if(value == 'submit'){
+      this.taxData ={
+        filingType:this.TypeOfFiling,
+        month : this.month,
+        year:this.year,
+        saleAmount:this.saleAmount,
+        taxAmount:this.taxAmount,
+        surcharge:this.surchage,
+        penalty:this.penalty,
+        totalAmount:this.totalAmount
+      }
     }
-    console.log(this.taxData,'taxData')
   }
 
   calculateTaxAmount(value: number) {

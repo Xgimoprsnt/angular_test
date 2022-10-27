@@ -1,60 +1,21 @@
-<nav class="py-4 bg-light">
-  <div class="container col-md-12">
+<app-header></app-header>
 
-    <div class="text-right">
-
-      <div class="d-inline-block px-4">
-        Time in Thailand: 15:57 (GMT +7) | 1st October 2021
-      </div>
-
-      <div class="dropdown text-end d-inline-block">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          <span class="username-nav">Lorem Co Ltd,</span>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-<div class="py-5  mx-auto text-center">
-  <h1>Submit Tax Filing</h1>
-</div>
 
 <div class="container">
-
-  <div class="col-md-2 col-lg-3 steps mb-5">
-    <progress id="progress" value=0 max=100></progress>
-
-    <div class="step-item">
-      <button class="step-button text-center" type="button" [attr.aria-expanded]="page == 'Input Detail'"
-        [ngStyle]="checkStepStyle(page)">
-        1
-      </button>
-      <div class="step-title mt-2">
-        Input Detail
-      </div>
-    </div>
-
-    <div class="step-item">
-      <button class="step-button text-center collapsed" type="button"
-        [attr.aria-expanded]="page == 'Reviews & Confirm'">
-        2
-      </button>
-      <div class="step-title mt-2">
-        Review & Confirm
-      </div>
-    </div>
-
+  
+  <div class="py-5  mx-auto text-center">
+    <h1>Submit Tax Filing</h1>
   </div>
+  
+
+  <app-step [step]="stepSelected" ></app-step>
 
   <div class="card p-5">
     <div>
       <h4>1. Tax Filing Detail</h4>
       <hr />
 
-      <ng-container *ngIf="page == 'Input Detail'  ">
+      <ng-container *ngIf="stepSelected == 0 ">
 
         <app-filing-type [valueSelected]="TypeOfFiling" (changeValue)="updateTypeOfFiling($event)"> </app-filing-type>
 
@@ -86,7 +47,7 @@
         </div>
       </ng-container>
 
-      <ng-container *ngIf="page == 'Reviews & Confirm'  ">
+      <ng-container *ngIf="stepSelected == 1 ">
         <div class="form-inline">
           <h5 class="d-inline-block col-md-2">Type of Filing</h5>
           <p class="d-inline-block col-md-2">Ordinary Filing</p>
@@ -102,13 +63,13 @@
       <div class="d-flex mt-5">
 
         <h4 class="col-md-10 ">2. Tax Computation</h4>
-        <span class="view-exchange-rate col-md-2" *ngIf="page == 'Input Detail'  ">View Exchange
+        <span class="view-exchange-rate col-md-2" *ngIf="stepSelected == 0">View Exchange
           Rate</span>
       </div>
 
       <hr />
 
-      <ng-container *ngIf="page == 'Input Detail'  ">
+      <ng-container *ngIf="stepSelected ==  0">
         <h6>Provide total value taxable eletronic service <span class="require">*</span></h6>
 
 
@@ -132,7 +93,7 @@
       </ng-container>
 
 
-      <ng-container *ngIf="page == 'Reviews & Confirm'  ">
+      <ng-container *ngIf="stepSelected == 1">
         <div class="row mt-3">
           <h5 class="col-md-9">Total value of taxale electronic service exclusive of VAT</h5>
           <p class="col-md-3 text-right">{{saleAmount  | number : '1.2-2'}}THB</p>
@@ -164,24 +125,7 @@
     </div>
   </div>
 
-  <div class="action-tool my-5 d-flex">
-
-    <ng-container *ngIf="page == 'Input Detail' ">
-      <button class="btn btn-outline-secondary px-5 py-2 " type="button" id="btn-back" (click)="handleOnclickBack()">
-        Back
-      </button>
-      <button class="btn btn-dark px-5 py-2 " type="button" id="btn-next" (click)="handleOnclickNext()">
-        Next
-      </button>
-    </ng-container>
-
-    <ng-container *ngIf="page == 'Reviews & Confirm'">
-      <button class="btn btn-dark m-auto py-2 px-5 mx-auto" type="submit" (click)="submit()">
-        Confiirm and Submit
-      </button>
-    </ng-container>
-
-  </div>
+  <app-actionbar [step]="stepSelected" (action)="updateAction($event)" ></app-actionbar>
 
 </div>
 

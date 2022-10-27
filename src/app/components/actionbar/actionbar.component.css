@@ -1,0 +1,7 @@
+#btn-back ,#btn-next{
+    border-radius: 1.25rem;
+}
+
+#btn-next{
+    margin-left:1.5rem;
+}

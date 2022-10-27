@@ -1,0 +1,14 @@
+.text-right{
+    text-align: right;
+}
+
+.username-nav{
+    font-weight: bold;
+    text-decoration: underline;
+    padding:0 1rem ;
+
+}
+
+nav{
+    border-bottom: 5px solid black;
+}
