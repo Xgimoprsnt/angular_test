@@ -90,6 +90,11 @@ export class AppComponent {
     this.totalAmount = this.taxAmount + this.surchage + this.penalty;
   }
 
+  updateTaxAmount(value:number){
+    this.taxAmount = value
+    this.totalAmount = this.taxAmount + this.surchage + this.penalty;
+  }
+
   updateTypeOfFiling(value: string) {
 
     this.TypeOfFiling = value;
