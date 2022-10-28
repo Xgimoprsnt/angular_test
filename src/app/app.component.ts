@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbdModalContent} from './components/modal/modal.component'
 
 interface TtaxData {
   filingType: string,
@@ -40,7 +42,7 @@ export class AppComponent {
 
   closeResult = '';
 
-  constructor() {}
+  constructor(    public modalService: NgbModal) {}
 
 
   ngOnInit() {
@@ -65,7 +67,7 @@ export class AppComponent {
       }
     }
     if(value == 'submit'){
-      console.log(this.taxData,'taxData')
+      this.openModal()
     }
   }
 
@@ -102,6 +104,11 @@ export class AppComponent {
   updateMonth(value : string){
     this.month = value
   }
+
+	openModal() {
+		const modalRef = this.modalService.open(NgbdModalContent);
+		modalRef.componentInstance.allData = this.taxData;
+	}
 
 
 

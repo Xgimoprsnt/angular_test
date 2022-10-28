@@ -15,6 +15,8 @@ import { StepComponent } from './components/step/step.component';
 import { ActionbarComponent } from './components/actionbar/actionbar.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { OnlynumberDirective } from './directive/onlynumber.directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalContent } from './components/modal/modal.component';
 
 
 
@@ -35,9 +37,11 @@ import { OnlynumberDirective } from './directive/onlynumber.directive';
     ActionbarComponent,
     PreviewComponent,
     OnlynumberDirective,
+    NgbdModalContent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule
   ],
   providers: [], 
   bootstrap: [AppComponent]
