@@ -53,8 +53,6 @@ export class AppComponent {
     }
     if(value == 'next'){
       this.stepSelected = 1
-    }
-    if(value == 'submit'){
       this.taxData ={
         filingType:this.TypeOfFiling,
         month : this.month,
@@ -65,6 +63,18 @@ export class AppComponent {
         penalty:this.penalty,
         totalAmount:this.totalAmount
       }
+    }
+    if(value == 'submit'){
+      // this.taxData ={
+      //   filingType:this.TypeOfFiling,
+      //   month : this.month,
+      //   year:this.year,
+      //   saleAmount:this.saleAmount,
+      //   taxAmount:this.taxAmount,
+      //   surcharge:this.surchage,
+      //   penalty:this.penalty,
+      //   totalAmount:this.totalAmount
+      // }
     }
   }
 

@@ -1,133 +1,74 @@
 <app-header></app-header>
 
-
 <div class="container">
-  
+
   <div class="py-5  mx-auto text-center">
     <h1>Submit Tax Filing</h1>
   </div>
-  
 
-  <app-step [step]="stepSelected" ></app-step>
+  <app-step [step]="stepSelected"></app-step>
 
   <div class="card p-5">
-    <div>
-      <h4>1. Tax Filing Detail</h4>
-      <hr />
 
-      <ng-container *ngIf="stepSelected == 0 ">
-
-        <app-filing-type [valueSelected]="TypeOfFiling" (changeValue)="updateTypeOfFiling($event)"> </app-filing-type>
-
-        <div class="form-row row">
-
-          <div class="col-md-2 mb-3">
-            <label for="">VAT Month <span class="require">*</span></label>
-
-            <app-month [ItemValue]="month" (changeValue)="updateMonth($event)"></app-month>
-
-          </div>
-
-          <div class="col-md-2 mt-4">
-            <app-year [ItemValue]="year" (changeValue)="updateYear($event)"></app-year>
-          </div>
-
-          <ng-container *ngIf="TypeOfFiling == '1'">
-            <div class="col-md-2 ">
-              <label for="">Type <span class="require">*</span></label>
-              <select class="form-select">
-                <option value="1">On-Time</option>
-              </select>
+    <ng-container *ngIf="stepSelected == 0">
+      
+          <h4>1. Tax Filing Detail</h4>
+          <hr/>
+    
+          <app-filing-type [valueSelected]="TypeOfFiling" (changeValue)="updateTypeOfFiling($event)"> </app-filing-type>
+  
+          <div class="form-row row">
+  
+            <div class="col-md-2 mb-3">
+              <label for="">VAT Month <span class="require">*</span></label>
+              <app-month [ItemValue]="month" (changeValue)="updateMonth($event)"></app-month>
             </div>
+  
+            <div class="col-md-2 mt-4">
+              <app-year [ItemValue]="year" (changeValue)="updateYear($event)"></app-year>
+            </div>
+  
+            <ng-container *ngIf="TypeOfFiling == '1'">
+              <div class="col-md-2 ">
+                <label for="">Type <span class="require">*</span></label>
+                <select class="form-select">
+                  <option value="1">On-Time</option>
+                </select>
+              </div>
+            </ng-container>
 
+          </div>
+  
+          <div class="d-flex mt-5">
+            <h4 class="col-md-10 ">2. Tax Computation</h4>
+            <span class="view-exchange-rate col-md-2">View Exchange
+              Rate</span>
+          </div>
+  
+          <hr/>
+  
+          <h6>Provide total value taxable eletronic service <span class="require">*</span></h6>
+  
+          <app-sale-amount [ItemValue]="saleAmount" (changeValue)="updateSaleAmout($event)"></app-sale-amount>
+          <app-tax-amount [ItemValue]="taxAmount"></app-tax-amount>
+  
+          <ng-container *ngIf="TypeOfFiling == '1'">
+            <h6 class="my-4">Incase of late filling and payment, or additional filling</h6>
+  
+            <app-surcharge [ItemValue]="surchage"></app-surcharge>
+            <app-penalty [ItemValue]="penalty"></app-penalty>
+            <app-total-amount [ItemValue]="totalAmount"></app-total-amount>
+  
           </ng-container>
+  
+    </ng-container>
 
+    <ng-container *ngIf="stepSelected == 1">
+      <app-preview [previewData]="taxData"></app-preview>
+    </ng-container>
 
-
-        </div>
-      </ng-container>
-
-      <ng-container *ngIf="stepSelected == 1 ">
-        <div class="form-inline">
-          <h5 class="d-inline-block col-md-2">Type of Filing</h5>
-          <p class="d-inline-block col-md-2">Ordinary Filing</p>
-        </div>
-
-        <div class="form-inline">
-          <h5 class="d-inline-block col-md-2">VAT Month</h5>
-          <p class="d-inline-block col-md-2">{{month}} {{year}}</p>
-        </div>
-
-
-      </ng-container>
-      <div class="d-flex mt-5">
-
-        <h4 class="col-md-10 ">2. Tax Computation</h4>
-        <span class="view-exchange-rate col-md-2" *ngIf="stepSelected == 0">View Exchange
-          Rate</span>
-      </div>
-
-      <hr />
-
-      <ng-container *ngIf="stepSelected ==  0">
-        <h6>Provide total value taxable eletronic service <span class="require">*</span></h6>
-
-
-        <app-sale-amount [ItemValue]="saleAmount" (changeValue)="updateSaleAmout($event)"></app-sale-amount>
-
-        <app-tax-amount [ItemValue]="taxAmount"></app-tax-amount>
-
-
-        <ng-container *ngIf="TypeOfFiling == '1'">
-
-          <h6 class="my-4">Incase of late filling and payment, or additional filling</h6>
-
-          <app-surcharge [ItemValue]="surchage"></app-surcharge>
-
-          <app-penalty [ItemValue]="penalty"></app-penalty>
-
-          <app-total-amount [ItemValue]="totalAmount"></app-total-amount>
-
-        </ng-container>
-
-      </ng-container>
-
-
-      <ng-container *ngIf="stepSelected == 1">
-        <div class="row mt-3">
-          <h5 class="col-md-9">Total value of taxale electronic service exclusive of VAT</h5>
-          <p class="col-md-3 text-right">{{saleAmount  | number : '1.2-2'}}THB</p>
-        </div>
-
-        <div class="row mt-3">
-          <div class="col-md-9">
-            <h5 class="">Total VAT to be remitted</h5>
-            <small>(7% of Total value of taxable
-              eletronic service exclusive of VAT)</small>
-          </div>
-
-          <div class="col-md-3">
-            <p class="text-right">{{taxAmount  | number : '1.2-2' }} THB</p>
-          </div>
-        </div>
-
-        <div class="row mt-3">
-          <h5 class=" col-md-9">Total Amount Payable</h5>
-          <h5 class="col-md-3 text-right">{{totalAmount  | number : '1.2-2'}} THB</h5>
-        </div>
-
-        <h4 class="mt-5">Declaration</h4>
-        <hr />
-        <h6>I hereby certify that information given above are true and correct and agree to be bound by such
-          information. </h6>
-      </ng-container>
-
-    </div>
   </div>
 
-  <app-actionbar [step]="stepSelected" (action)="updateAction($event)" ></app-actionbar>
+  <app-actionbar [step]="stepSelected" (action)="updateAction($event)"></app-actionbar>
 
 </div>
-
-
-

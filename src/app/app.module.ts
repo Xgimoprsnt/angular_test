@@ -13,6 +13,7 @@ import { TotalAmountComponent } from './components/total-amount/total-amount.com
 import { HeaderComponent } from './components/layout/header/header.component';
 import { StepComponent } from './components/step/step.component';
 import { ActionbarComponent } from './components/actionbar/actionbar.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 
 
@@ -31,6 +32,7 @@ import { ActionbarComponent } from './components/actionbar/actionbar.component';
     HeaderComponent,
     StepComponent,
     ActionbarComponent,
+    PreviewComponent,
   ],
   imports: [
     BrowserModule
