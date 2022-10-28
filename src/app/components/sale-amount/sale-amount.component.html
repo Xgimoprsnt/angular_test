@@ -4,7 +4,7 @@
     <div class="col-sm-3">
         
         <div class="input-group">
-            <input type="number" class="form-control" [value]="ItemValue"  (blur)="updateValue(saleAmount?.value)" #saleAmount>
+            <input type="text" class="form-control" [value]="ItemValue | number : '1.2-2' "  (blur)="updateValue(saleAmount.value)" #saleAmount>
             <div class="input-group-append">
               <span class="input-group-text">THB</span>
             </div>

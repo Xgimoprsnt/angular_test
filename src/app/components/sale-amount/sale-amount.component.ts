@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter,OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-sale-amount',
@@ -11,11 +11,17 @@ export class SaleAmountComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.ItemValue,'value')
+  }
+
+  ngOnChanges(){
+    console.log(this.ItemValue,'ngOnChanges')
   }
 
   updateValue(value : any){
-
-    this.changeValue.emit(value)
+    console.log(value,'update amount')
+    
+    this.changeValue.emit(Number(value))
   }
 
 }

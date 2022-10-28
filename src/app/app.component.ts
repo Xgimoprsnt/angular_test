@@ -65,16 +65,7 @@ export class AppComponent {
       }
     }
     if(value == 'submit'){
-      // this.taxData ={
-      //   filingType:this.TypeOfFiling,
-      //   month : this.month,
-      //   year:this.year,
-      //   saleAmount:this.saleAmount,
-      //   taxAmount:this.taxAmount,
-      //   surcharge:this.surchage,
-      //   penalty:this.penalty,
-      //   totalAmount:this.totalAmount
-      // }
+      console.log(this.taxData,'taxData')
     }
   }
 
@@ -87,6 +78,7 @@ export class AppComponent {
   }
 
   updateSaleAmout(value: number) {
+    console.log(value)
     this.saleAmount = value;
     this.calculateTaxAmount(value)
     this.calculateSurchageAmount(value)
