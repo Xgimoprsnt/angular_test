@@ -4,7 +4,7 @@
     <div class="col-sm-3">
         
         <div class="input-group">
-            <input type="number" class="form-control" [value]="ItemValue | number : '1.2-2'" (blur)="checktax(tax)"  #tax>
+            <input type="text" class="form-control" [value]="ItemValue | number : '1.2-2'"   [appOnlynumber]="true">
             <div class="input-group-append">
               <span class="input-group-text">THB</span>
             </div>

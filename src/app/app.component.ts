@@ -72,22 +72,23 @@ export class AppComponent {
   }
 
   calculateTaxAmount(value: number) {
-    this.taxAmount = value * 0.07
+    return value * 0.07
   }
 
   calculateSurchageAmount(value: number) {
-    this.surchage = value * 0.01
+    return value * 0.01
   }
 
   updateSaleAmout(value: number) {
     console.log(value)
     this.saleAmount = value;
-    this.calculateTaxAmount(value)
-    this.calculateSurchageAmount(value)
+    this.taxAmount = this.calculateTaxAmount(value)
+    this.surchage = this.calculateSurchageAmount(this.taxAmount)
     this.penalty = 200;
 
 
     this.totalAmount = this.taxAmount + this.surchage + this.penalty;
+    console.log(this.taxAmount,'this.taxAmount')
   }
 
   updateTaxAmount(value:number){

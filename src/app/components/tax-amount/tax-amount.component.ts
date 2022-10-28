@@ -14,18 +14,9 @@ export class TaxAmountComponent implements OnInit {
   }
 
   ngOnChanges(){
-    if(this.ItemValue && this.ItemValue > 20){
-    this.ItemValue = 20
-    }
+   console.log('ngonChanges')
   }
 
-  checktax(event:HTMLInputElement){
-   const value = Number(event.value)
-   if(value > 20 ){
-    this.changeValue.emit(20)
-   }else{
-    this.changeValue.emit(Number(value))
-   }
-  }
+ 
 
 }
