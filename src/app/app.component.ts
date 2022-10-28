@@ -54,7 +54,7 @@ export class AppComponent {
     if(value == 'next'){
       this.stepSelected = 1
       this.taxData ={
-        filingType:this.TypeOfFiling,
+        filingType:this.TypeOfFiling == '0'? 'Ordinary Filing':'Additional Filing',
         month : this.month,
         year:this.year,
         saleAmount:this.saleAmount,

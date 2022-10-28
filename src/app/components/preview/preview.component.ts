@@ -11,7 +11,8 @@ export class PreviewComponent implements OnInit {
     year:'',
     saleAmount:0,
     totalAmount:0,
-    taxAmount:0
+    taxAmount:0,
+    filingType:''
   }
 
   constructor() { }

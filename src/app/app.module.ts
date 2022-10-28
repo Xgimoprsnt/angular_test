@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { StepComponent } from './components/step/step.component';
 import { ActionbarComponent } from './components/actionbar/actionbar.component';
 import { PreviewComponent } from './components/preview/preview.component';
+import { OnlynumberDirective } from './directive/onlynumber.directive';
 
 
 
@@ -33,6 +34,7 @@ import { PreviewComponent } from './components/preview/preview.component';
     StepComponent,
     ActionbarComponent,
     PreviewComponent,
+    OnlynumberDirective,
   ],
   imports: [
     BrowserModule
