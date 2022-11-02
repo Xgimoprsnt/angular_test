@@ -3,11 +3,11 @@
     <br/>
 
     <div class="form-check form-check-inline mt-2 col-md-2">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" (change)="Change('0')" ngModel >
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [(ngModel)]="valueSelected" [value]="0" (ngModelChange)="onChange($event)"  >
         <label class="form-check-label" for="inlineRadio1">Ordinary Filing</label>
     </div>
     <div class="form-check form-check-inline col-md-2">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"  (change)="Change('1')" ngModel >
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"  [(ngModel)]="valueSelected" [value]="1"  (ngModelChange)="onChange($event)" >
         <label class="form-check-label" for="inlineRadio2">Additional Filing</label>
     </div>
 

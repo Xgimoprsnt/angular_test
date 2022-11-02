@@ -15,7 +15,7 @@ export class StepComponent implements OnInit {
 
 
   checkStepStyle(step: number): Object {
-    let style = {
+    const style = {
       'backgroundColor': 'black',
       'color': 'white'
     }

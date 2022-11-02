@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NgbdModalContent} from './components/modal/modal.component'
 
@@ -12,11 +13,14 @@ interface TtaxData {
   penalty: number,
   totalAmount: number
 }
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   title = 'angular-test-exam';
   stepSelected : number = 0 ;
@@ -42,14 +46,27 @@ export class AppComponent {
 
   closeResult = '';
 
-  constructor(    public modalService: NgbModal) {}
+  taxDataForm = new FormGroup({
+    filingType:new FormControl(''),
+    month:new FormControl(''),
+    year:new FormControl(''),
+    saleAmount:new FormControl(''),
+    taxAmount:new FormControl(''),
+    surcharge:new FormControl(''),
+    penalty:new FormControl(''),
+    totalAmount:new FormControl(''),
+  })
 
+  constructor(
+    public modalService: NgbModal
+  ) {}
 
   ngOnInit() {
  
   }
 
   updateAction(value : string){
+    console.log(this.taxDataForm)
     if(value == 'back'){
       this.stepSelected = 0
     }
@@ -117,6 +134,7 @@ export class AppComponent {
 	}
 
 
+  
 
 }
 

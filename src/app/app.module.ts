@@ -17,6 +17,7 @@ import { PreviewComponent } from './components/preview/preview.component';
 import { OnlynumberDirective } from './directive/onlynumber.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent } from './components/modal/modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -41,7 +42,9 @@ import { NgbdModalContent } from './components/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [], 
   bootstrap: [AppComponent]
