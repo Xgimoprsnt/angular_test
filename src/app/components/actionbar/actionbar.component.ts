@@ -7,6 +7,7 @@ import { Component, OnInit,Input, Output ,EventEmitter } from '@angular/core';
 })
 export class ActionbarComponent implements OnInit {
   @Input() step: number = 0 || 1
+  @Input() isDisabled: boolean = true
   @Output() action = new EventEmitter<any>();
 
   constructor() { }

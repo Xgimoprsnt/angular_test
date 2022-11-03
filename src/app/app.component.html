@@ -17,17 +17,18 @@
       <h4>1. Tax Filing Detail</h4>
       <hr />
    
-      <app-filing-type formControlName="filingType" > </app-filing-type>
+      <app-filing-type formControlName="filingType"  (changeValue)="updateTypeOfFiling($event)" > </app-filing-type>
+      
 
       <div class="form-row row">
 
         <div class="col-md-2 mb-3">
           <label for="">VAT Month <span class="require">*</span></label>
-          <app-month [ItemValue]="month" (changeValue)="updateMonth($event)"></app-month>
+          <app-month formControlName="month" (changeValue)="updateMonth($event)" ></app-month>
         </div>
 
         <div class="col-md-2 mt-4">
-          <app-year [ItemValue]="year" (changeValue)="updateYear($event)"></app-year>
+          <app-year formControlName="year" (changeValue)="updateYear($event)" ></app-year>
         </div>
 
         <ng-container *ngIf="TypeOfFiling == '1'">
@@ -75,7 +76,7 @@
 
   </div>
 
-  <app-actionbar [step]="stepSelected" (action)="updateAction($event)"></app-actionbar>
+  <app-actionbar [step]="stepSelected" (action)="updateAction($event)" [isDisabled]="!taxDataForm.valid"></app-actionbar>
 
   </form>
 

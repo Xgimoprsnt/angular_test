@@ -1,5 +1,5 @@
-<select class="form-select "  (change)="updateValue(monthSelect.value)" #monthSelect>
+<select class="form-select "  [(ngModel)]="valueSelected"  (ngModelChange)="onChange($event)" >
     <!-- <option selected>September</option> -->
-    <option value="" disabled>Choose month</option>
+    <option value="" disabled selected>Choose month</option>
     <option *ngFor="let month of monthList" [value]="month"  >{{month}}</option>
 </select>

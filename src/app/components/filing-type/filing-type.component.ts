@@ -1,5 +1,5 @@
-import { Component, OnInit,Input, Output ,EventEmitter, forwardRef } from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-filing-type',
@@ -13,37 +13,41 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/for
     }
   ]
 })
-export class FilingTypeComponent implements ControlValueAccessor  {
-  valueSelected? : String
+
+export class FilingTypeComponent implements ControlValueAccessor {
+  valueSelected?: any
   isDisabled: boolean = false;
-  // @Input() valueSelected?: String ;
-  // @Output() changeValue = new EventEmitter<string>();
+  @Output() changeValue = new EventEmitter<string>();
 
   constructor() { }
 
-  writeValue(input : string): void {  
-    this.valueSelected = input
+  onTouch() {
+    console.log('onTouch')
+  }
+
+  onChange(value: string) {
+    this.changeValue.emit(value)
+    console.log(value, 'value onChange')
+  }
+
+  writeValue(input: string): void {
+    console.log('writeValue')
+    // this.valueSelected = input
   }
 
   registerOnChange(fn: any): void {
-    this.onChange = fn
+    console.log('registerOnChange')
+    // this.onChange = fn
   }
 
   registerOnTouched(fn: any): void {
-   this.onTouch = fn
+    console.log('registerOnTouched')
+    // this.onTouch = fn
   }
 
   setDisabledState?(isDisabled: boolean): void {
+    console.log('setDisabledState')
     this.isDisabled = isDisabled
-  }
-  
-  onTouch(){
-
-  }
-
-  onChange(value : string){
-    console.log(value,'value')
-    // this.changeValue.emit(value)
   }
 
 }

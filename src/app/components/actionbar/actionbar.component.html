@@ -4,13 +4,14 @@
       <button class="btn btn-outline-secondary px-5 py-2 " type="button" id="btn-back" (click)="handleAction('back')">
         Back
       </button>
-      <button class="btn btn-dark px-5 py-2 " type="button" id="btn-next" (click)="handleAction('next')">
+
+      <button class="btn btn-dark px-5 py-2 " type="button" id="btn-next" (click)="handleAction('next')" [disabled]="isDisabled">
         Next
       </button>
     </ng-container>
 
     <ng-container *ngIf="step == 1">
-      <button class="btn btn-dark m-auto py-2 px-5 mx-auto" type="submit" (click)="handleAction('submit')">
+      <button class="btn btn-dark m-auto py-2 px-5 mx-auto" type="submit" (click)="handleAction('submit')" >
         Confiirm and Submit
       </button>
     </ng-container>

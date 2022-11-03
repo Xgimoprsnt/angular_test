@@ -1,4 +1,4 @@
-<select class="form-select" (change)="updateValue(yearSelect.value)" #yearSelect>
+<select class="form-select"  [(ngModel)]="valueSelected"  (ngModelChange)="onChange($event)" >
     <!-- <option selected>September</option> -->
     <option value="" disabled>Choose year</option>
     <option *ngFor="let year of yearList" [value]="year">{{year}}</option>

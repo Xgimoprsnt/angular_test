@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component ,AfterViewInit} from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NgbdModalContent} from './components/modal/modal.component'
 
@@ -47,9 +47,9 @@ export class AppComponent {
   closeResult = '';
 
   taxDataForm = new FormGroup({
-    filingType:new FormControl(''),
-    month:new FormControl(''),
-    year:new FormControl(''),
+    filingType:new FormControl('',Validators.required),
+    month:new FormControl('',Validators.required),
+    year:new FormControl('',Validators.required),
     saleAmount:new FormControl(''),
     taxAmount:new FormControl(''),
     surcharge:new FormControl(''),
@@ -62,7 +62,11 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
- 
+
+  }
+
+  ngAfterViewInit(){
+    console.log(this.taxDataForm,'modal after view')
   }
 
   updateAction(value : string){
@@ -113,18 +117,27 @@ export class AppComponent {
     this.totalAmount = this.taxAmount + this.surchage + this.penalty;
   }
 
-  updateTypeOfFiling(value: string) {
+  updateTypeOfFiling(value: any) {
+    console.log(value,'value')
+    console.log(this.taxDataForm,'modal')
+    
+    this.taxDataForm.controls.filingType.setValue(value)
 
-    this.TypeOfFiling = value;
+
+    console.log(this.taxDataForm.value , 'change value')
+
+    this.TypeOfFiling = value
     this.surchage = 0;
     this.saleAmount > 0 && this.updateSaleAmout(this.saleAmount)
   }
 
   updateYear(value : string){
+    this.taxDataForm.controls.year.setValue(value)
     this.year = value 
   }
 
   updateMonth(value : string){
+    this.taxDataForm.controls.month.setValue(value)
     this.month = value
   }
 
